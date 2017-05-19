@@ -1,6 +1,14 @@
-# Winston-client
+# winston-browser-logging
 > "Because even the client deserves a great logger"
 
+
+#### Installation
+```
+meteor add clinical:winston-browser-logging
+meteor add infinitedg:winston
+```
+
+#### Usage
 winston-client pushes a simplified `winston` object down to the client that logs messages to the console and sends them up to the server as well. winston-client supports the default `Winston.config.cli` levels:
 
     Winston.silly("Silly!");
@@ -34,15 +42,14 @@ To limit the messages that are logged to the user's console:
 
     Winston.transports.MeteorClient.level = 'info'; // Or any other transport level you like.
 
-# Limitations
-`Winston.log` with the MeteorClient transport does not behave the same as the Winston Console transport at this time, specifically in how it prints any metadata and especially in how it handles string interpolation. If you'd like to fix this, 
 
-Also, worthy of note - winston-client hasn't been tested much, so file issues as you find them and be careful how you handle your logs.
 
-# Future improvements
-Although I don't believe setting up more than the console transport on winston on the client would be wise, it would be helfpul to synchronize the server winston object's error levels with the client's. For now, it's hard-wired to the config.cli levels, however.
+#### Acknowledgements  
+Kudos to @brentjanderson for the initial concept of this package.  Forking to make it more specific for clinical/healthcare needs.  
+https://github.com/farpoint/meteor-winston-client  
 
-# License
+
+#### License
 The MIT License (MIT)
 
 Copyright (c) 2013 The Space EdVentures Foundation, Inc.
