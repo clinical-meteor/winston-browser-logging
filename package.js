@@ -1,20 +1,23 @@
 Package.describe({
-  summary: 'A nifty extension to Winston that provides great logging on the client too',
-  version: "0.2.0",
+  name: 'awatson1978:winston-client',
+  summary: 'Winston library to provide isomorphic client-sid logging.  Meteor 1.4+',
+  version: "0.2.2",
   git: "https://github.com/farpoint/meteor-winston-client.git"
 });
 
 Npm.depends({
   "util": "0.10.3"
-})
+});
 
 Package.on_use(function (api) {
-  api.versionsFrom("METEOR-CORE@0.9.0-atm");
-  api.use("infinitedg:winston@0.7.3", 'server');
+  api.versionsFrom('1.1.0.3');
+  
+  api.use("infinitedg:winston@0.7.3");
+  api.imply("infinitedg:winston@0.7.3");
+  
   api.use('meteor', 'server');
-  api.add_files('client.js', 'client');
-    if (api.export) {
-        api.export("Winston", 'client');
-    }
-  api.add_files('server.js', 'server');
+  api.addFiles('client.js', 'client');
+  api.addFiles('server.js', 'server');
+
+  api.export("Winston", 'client');
 });

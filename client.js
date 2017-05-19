@@ -1,16 +1,12 @@
 var log = function(level, args) {
-  args = Array.prototype.slice.call(args, 0),
-  args.splice(0, 0, level);
-  args.splice(0, 0, "winston-client.log");
-  args.push(function(error, result) {
-    if (error) {
-      throw error;
-    } else {
-      if (result)
-        console.log(result);
+  if(['silly', 'input', 'verbose', 'prompt', 'debug', 'info', 'data', 'help', 'warn', 'error'].includes(level)){
+    if(args && args[0]){
+      console.log(args[0]);
     }
-  });
-  Meteor.call.apply(null, args);
+  }
+  if(['silly', 'input', 'verbose', 'prompt', 'debug', 'info', 'data', 'help', 'warn', 'error'].includes(level)){
+    Meteor.call("winston-client.log", level, args);
+  } 
 }
 
 Winston = {
