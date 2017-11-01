@@ -21,8 +21,8 @@ Winston.add(Winston.transports.MeteorClient, {});
 
 
 Meteor.methods({
-    'winston-client.log': function() {
-        Winston.log.apply(this, arguments);
+    'winston-client.log': function(level, args) {
+        Winston.log.apply(this, level, args);
     }
 });
 
