@@ -22,10 +22,7 @@ Winston.add(Winston.transports.MeteorClient, {});
 
 Meteor.methods({
     'winston-client.log': function() {
-        check(arguments, [Match.Any]);
-        if(arguments && arguments["0"] && arguments["1"]){
-            Winston.log(arguments["0"], arguments["1"][0]);
-        }
+        Winston.log.apply(this, arguments);
     }
 });
 
