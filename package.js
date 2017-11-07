@@ -1,7 +1,7 @@
 Package.describe({
   name: 'clinical:winston-browser-logging',
   summary: 'Winston library to provide isomorphic client-sid logging.  Meteor 1.4+',
-  version: "0.2.2",
+  version: "0.2.3",
   git: "https://github.com/farpoint/meteor-winston-client.git"
 });
 
