@@ -1,3 +1,4 @@
+/* eslint-disable */
 var util = Npm.require("util");
 var lastMessage = ''; // The message to return to the user
 
@@ -22,7 +23,7 @@ Winston.add(Winston.transports.MeteorClient, {});
 
 Meteor.methods({
     'winston-client.log': function(level, args) {
-        Winston.log.apply(this, level, args);
+        Winston.log.apply(this, [level].concat(args));
     }
 });
 
